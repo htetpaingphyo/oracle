@@ -1,0 +1,47 @@
+  %c  The copy number of the backup piece within a set of duplexed
+      backup pieces. If you did not duplex a backup, then this variable
+      is 1 for backup sets and 0 for proxy copies.
+      If one of these commands is enabled, then the variable shows the
+      copy number. The maximum value for %c is 256. 
+
+  %d  The name of the database. 
+
+  %D  The current day of the month (in format DD)
+
+  %F  Combination of DBID, day, month, year, and sequence into a unique
+      and repeatable generated name. 
+
+  %M  The month (format MM)
+
+  %n  The name of the database, padded on the right with x characters
+      to a total length of eight characters. (AKA: Porn star alias name)
+      For example, if the scott is the database name, %n= scottxxx. 
+
+  %p  The piece number within the backup set. This value starts at 1
+      for each backup set and is incremented by 1 as each backup piece
+      is created. Note: If you specify PROXY, then the %p variable must
+      be included in the FORMAT string either explicitly or implicitly within %U. 
+
+  %s  The backup set number. This number is a counter in the control file that
+      is incremented for each backup set. The counter value starts at 1 and is
+      unique for the lifetime of the control file. If you restore a backup
+      control file, then duplicate values can result.
+      Also, CREATE CONTROLFILE initializes the counter back to 1. 
+
+  %t  The backup set time stamp, which is a 4-byte value derived as the
+      number of seconds elapsed since a fixed reference time.
+      The combination of %s and %t can be used to form a unique name for
+      the backup set. 
+
+  %T  The year, month, and day (YYYYMMDD)
+
+  %u  An 8-character name constituted by compressed representations of
+      the backup set number and the time the backup set was created. 
+
+  %U  A convenient shorthand for %u_%p_%c that guarantees uniqueness in
+      generated backup filenames.
+      If you do not specify a format, RMAN uses %U by default. 
+
+  %Y  The year (YYYY)
+
+  %%  Specifies the '%' character. e.g. %%Y translates to %Y. 
