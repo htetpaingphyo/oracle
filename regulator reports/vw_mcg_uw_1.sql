@@ -30,6 +30,5 @@ select
     ) "STAMP_FEE", 
     case x.pol_prd_code when 'MCG' then 'MARINE CARGO' else 'INLAND TRANSIT' end "REMARK" 
 from pol_risk_info x
-where pol_prd_code in ('MCG', 'MIT') 
-and pol_policy_no like '%YGN%' 
+where pol_prd_code in ('MCG', 'MIT')
 order by 1;

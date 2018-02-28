@@ -13,6 +13,5 @@ select
     x.agent_name,
     case x.pol_prd_code when 'MCG' then 'MARINE CARGO' else 'INLAND TRANSIT' end "PRODUCT"
 from pol_data x 
-where x.pol_prd_code in ('MCG','MIT') 
-and x.pol_policy_no like '%YGN%' 
+where x.pol_prd_code in ('MCG','MIT')
 order by 1;

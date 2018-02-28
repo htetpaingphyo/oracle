@@ -1,7 +1,7 @@
 -- CLEAR VIEW --
 exec pk_stat_reports.pr_del_x_data;
 
-exec pk_stat_reports.pr_pop_x_data_rc_date('01-JAN-2018', '31-JAN-2018');
+exec pk_stat_reports.pr_pop_x_data_rc_date('01-FEB-2018', '28-FEB-2018');
 
 -- exec pk_stat_reports.pr_pop_x_data('01-DEC-2017', to_char(SYSDATE, 'DD-MON-YYYY'));
 
