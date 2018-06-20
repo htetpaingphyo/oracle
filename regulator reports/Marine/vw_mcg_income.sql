@@ -1,4 +1,8 @@
-create or replace view sicl.vw_mcg_income
+create or replace view sicl.vw_mcg_income 
+(
+    SRNO, TYPE, NOS, SI, PREMIUM, STAMPFEE, TOTAL, 
+    CONSTRAINT PK_MCG_INC_NO PRIMARY KEY (SRNO) DISABLE NOVALIDATE
+)
 as
 select xyz."SRNO", type, nos, si, premium, stampfee, (premium + stampfee) "TOTAL" from 
 (

@@ -1,4 +1,10 @@
-create or replace view sicl.vw_mcp_data
+create or replace view sicl.vw_mcp_data 
+(
+    POLICY,NAME,ADDRESS,AGENT,PERIOD_FROM,PERIOD_TO,ACCOUNT_HANDLER,VEHICLE_NO,
+    MAKE,TYPE_OF_BODY,CC,MODEL,SUM_INSURED,WS_SI,WAR_RISK,AOG,WS_PREMIUM,NIL_EXCESS,
+    THEFT,TOTAL_PREMIUM,CHEQUE_NO,REMARK,DN_DATE,PRODUCT,IS_REINSTATEMENT, 
+    CONSTRAINT PK_MCP_POLICY PRIMARY KEY (POLICY) DISABLE NOVALIDATE
+)
 as
 select 
     distinct x.pol_policy_no "POLICY", cus_name "NAME", cus_address "ADDRESS", agent_name "AGENT", 

@@ -8,11 +8,12 @@ select * from fire_perils_report;
 create or replace view fire_perils_report as 
 select 
     distinct x.pol_policy_no "POLICY_NO", 
-    loc_province "STATE", 
-    loc_district "DISTRICT", 
-    loc_postal_code "TOWNSHIP", 
-    loc_cyclone "VILLAGE_TRACK", 
-    loc_earthqk "VILLAGE", 
+    --loc_province "STATE", 
+    --loc_district "DISTRICT", 
+    --loc_postal_code "TOWNSHIP", 
+    --loc_cyclone "VILLAGE_TRACK", 
+    --loc_earthqk "VILLAGE", 
+    loc_description "LOCATION", 
     (select listagg(cus_name, ', ') within group (order by pol_policy_no)  
         from pol_data 
         where pol_policy_no=x.pol_policy_no 

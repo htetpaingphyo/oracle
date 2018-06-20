@@ -1,4 +1,10 @@
 /** BEGIN-OF-QUERY **/
+create or replace view vw_ffi_monthly
+(
+	POLICY, CUSTOMER, AGENT, ADDR, SI_BUILDING, RATING, PREMIUM, NCB, COMMISSION, NET_PRE, OCCUPATION, TYPE, 
+	CONSTRAINT PK_FFI_MON_POLICY PRIMARY KEY(POLICY) DISABLE NOVALIDATE
+)
+as
 select 
     distinct x.pol_policy_no "POLICY", cus_name "CUSTOMER", agent_name "AGENT", cus_address "ADDR", pol_sum_insured "SI_BUILDING",
     (   select  

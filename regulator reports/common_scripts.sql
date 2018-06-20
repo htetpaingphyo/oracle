@@ -1,54 +1,30 @@
 -- CLEAR VIEW --
-exec pk_stat_reports.pr_del_x_data;
+EXEC PK_STAT_REPORTS.PR_DEL_X_DATA;
 
-exec pk_stat_reports.pr_pop_x_data_rc_date('01-FEB-2018', '28-FEB-2018');
+EXEC PK_STAT_REPORTS.PR_POP_X_DATA('01-JUN-2018', '15-JUN-2018');
+
+EXEC PK_STAT_REPORTS.PR_POP_X_DATA_RC_DATE('01-MAY-2018', '30-MAY-2018');
+
+EXEC PK_STAT_REPORTS.PR_POP_X_DATA_RC_DATE('01-JUN-2018', (SYSDATE - 1));
 
 -- exec pk_stat_reports.pr_pop_x_data('01-DEC-2017', to_char(SYSDATE, 'DD-MON-YYYY'));
 
--- exec pk_stat_reports.pr_pop_x_data('01-SEP-2017', '30-SEP-2017');
+-- exec pk_stat_reports.pr_pop_x_data('01-JUN-2018', SYSDATE);
 
--- select * from uw_pol_data where wrapper_date between '02-JUN-2017' and '30-JUN-2017';    //No longer used!
+SELECT * FROM VW_FFI_DATA;
 
-select * from pol_risk_info where pol_prd_code='MCP';
+SELECT * FROM VW_FFI_MONTHLY;
 
-select * from pol_common_info where pol_prd_code='MCP';
+SELECT * FROM VW_MCC_DATA;
 
-select * from pol_risk_perils where pol_prd_code='MCP';
+SELECT * FROM VW_MCP_DATA;
 
-select * from pol_risks where pol_prd_code='MCP';
+SELECT * FROM VW_MCH_DATA;
 
-select * from pol_data_locations where pol_prd_code='MCP';
+SELECT * FROM VW_MFC_DATA;
 
-select * from claims_data where int_claim_no like '%LHI%';
+SELECT * FROM VW_MFP_DATA;
 
-select * from vu_claims where clm_claim_no like '%LHI%'; 
+SELECT * FROM VW_LHI_DATA;
 
-select * from rc_data;
-
-select * from pol_inv;
-
-select * from pol_data where pol_prd_code='MCP';
-
-select * from uw_x_policies;
-
-select * from uw_t_policies;
-
-select * from uw_t_endorsements; 
-
-select * from uw_h_policy_history;
-
-select * from uw_h_endorsement_history;
-
-select * from cl_t_intimation;
-
-select * from rc_t_debit_settle;
-
-select * from rc_t_deb_settl_det;
-
-select * from rc_t_debit_note;
-
-select * from cust_info;
-
-select * from py_m_payment;
-
-select object_name, object_type, created, status from user_objects where object_type='VIEW' and object_name like 'VW%';
+SELECT * FROM VW_LHI_DETAIL;

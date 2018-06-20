@@ -1,4 +1,8 @@
-create or replace view sicl.vw_mcg_uw2
+create or replace view sicl.vw_mcg_uw2 
+(
+    POL_POLICY_NO, POL_SUM_INSURED, RECEIPT_NO, "_75MIL", BTW75MIL_300MIL, BTW300MIL_1000MIL, ABV1000MIL, TOTAL_PREMIUM, STAMP_FEE, REMARK, 
+    CONSTRAINT PK_MCG_UW2_POLICY PRIMARY KEY (POL_POLICY_NO) DISABLE NOVALIDATE
+)
 as
 select 
     distinct pol_policy_no, pol_sum_insured, y.receipt_no || ', ' || to_char(y.settlement_date, 'DD-MON-YYYY') "RECEIPT_NO",   

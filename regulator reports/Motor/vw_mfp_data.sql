@@ -1,8 +1,15 @@
 create or replace view sicl.vw_mfp_data
 --//TOTAL_PREMIUM column was changed to POL_RISKS rather than using POL_DATA;
+(
+    POLICY,NAME,ADDRESS,AGENT,PERIOD_FROM,PERIOD_TO,ACCOUNT_HANDLER,VEHICLE_NO,
+    MAKE,TYPE_OF_BODY,CC,MODEL,SUM_INSURED,WS_SI,WAR_RISK,AOG,WS_PREMIUM,NIL_EXCESS,
+    THEFT,TOTAL_PREMIUM,CHEQUE_NO,REMARK,DN_DATE,PRODUCT,IS_REINSTATEMENT, 
+    CONSTRAINT PK_MFP_POLICY PRIMARY KEY (POLICY) DISABLE NOVALIDATE
+)
 as
 select 
     distinct x.pol_policy_no "POLICY", cus_name "NAME", cus_address "ADDRESS", agent_name "AGENT", 
+    to_char(y.pol_period_from, 'DD-MON-YYYY') "PERIOD_FROM", to_char(y.pol_period_to, 'DD-MON-YYYY') "PERIOD_TO", x.account_handler_name "ACCOUNT_HANDLER", 
     (select distinct prs_name from pol_risk_perils where pol_seq_no=x.pol_seq_no and prs_name=y.prs_name) "VEHICLE_NO",    
     (select distinct(info_value) from pol_risk_info where pol_seq_no=x.pol_seq_no and prs_name=y.prs_name and pin_description='MAKE') "MAKE", 
     (select distinct(info_value) from pol_risk_info where pol_seq_no=x.pol_seq_no and prs_name=y.prs_name and pin_description='TYPE OF BODY') "TYPE_OF_BODY", 

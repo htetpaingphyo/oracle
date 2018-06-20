@@ -1,4 +1,8 @@
-create or replace view sicl.vw_mcg_uw1
+create or replace view sicl.vw_mcg_uw1 
+(
+    POLICY, "DATE", NAME, CARGO, VESSEL_VEHICLE, VOYAGE, TRIP, SI, RATE, PREMIUM, TOTAL_PREMIUM, STAMP_FEE, REMARK, 
+    CONSTRAINT PK_MCG_UW1_POLICY PRIMARY KEY (POLICY) DISABLE NOVALIDATE
+)
 as
 select 
     distinct x.pol_policy_no "POLICY", 

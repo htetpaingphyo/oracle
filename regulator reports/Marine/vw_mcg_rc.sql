@@ -1,4 +1,8 @@
-create or replace view sicl.vw_mcg_rc
+create or replace view sicl.vw_mcg_rc 
+(
+    POL_POLICY_NO, RECEIPT, CUS_NAME, POL_SUM_INSURED, PREMIUM, AGENT_NAME, PRODUCT, 
+    CONSTRAINT PK_MCG_RC_POLICY PRIMARY KEY (POL_POLICY_NO) DISABLE NOVALIDATE
+)
 as
 select 
     distinct pol_policy_no, 

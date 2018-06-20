@@ -21,14 +21,14 @@ select
     "DEBit_NOTE_NO"||' | '||settlement_date "CHEQUE_NO",  
     pol_transaction_type "REMARK",      
     debit_note_date "DN_DATE", 
-    case x.pol_prd_code
+    case x.pol_prd_code 
         when 'MCP' then 'PRIVATE CAR' 
         when 'MCC' then 'COMMERCIAL CAR' 
         when 'MFP' then 'PRIVATE FLEET' 
         when 'MFC' then 'COMMERCIAL FLEET' 
         else 'HYBRID' 
     end "PRODUCT", 
-    reinstatement_transaction "IS_REINSTATEMENT"
+    reinstatement_transaction "IS_REINSTATEMENT" 
 from pol_data x, pol_risk_perils y, rc_data z 
 where x.pol_seq_no = y.pol_seq_no 
 and x.pol_seq_no = z.pol_seq_no 

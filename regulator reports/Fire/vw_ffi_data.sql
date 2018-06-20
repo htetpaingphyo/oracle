@@ -1,4 +1,10 @@
 /** BOQ **/
+create or replace view vw_ffi_data
+(
+	POL_POLICY_NO, NAME, ADDR, BUILDING, MACHINERY, FURNITURE, STOCKS, FIRE, VST, WAR, AD, EXP, RSM, EQ, ID, SP, FLOOD, BUR, SL, PREMIUM, TR_CR, 
+	CONSTRAINT PK_FFI_POLICY PRIMARY KEY (POL_POLICY_NO) DISABLE NOVALIDATE
+)
+as
 select 
     distinct x.pol_policy_no, z.cus_name "NAME", z.cus_address "ADDR", 
     (select sum(declared_value) from pol_inv where pol_policy_no = y.pol_policy_no and inventory_type='BUILDING' group by pol_policy_no) "BUILDING", 
