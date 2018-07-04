@@ -24,5 +24,5 @@ select
 from pol_risks x, rc_data y
 where x.pol_policy_no=y.policy_no 
 and x.pol_prd_code='LHI' 
-and to_char(x.pol_trans_effect_date, 'MON') = to_char(y.settlement_date, 'MON')
+and to_char(x.pol_trans_effect_date, 'MON') = to_char(y.settlement_date, 'MON');
 /*where pol_policy_no='AMI/YGN/LHI/17000007';*/
