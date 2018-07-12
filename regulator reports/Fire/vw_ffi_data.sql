@@ -1,7 +1,7 @@
 /** BOQ **/
 create or replace view vw_ffi_data
 (
-	POL_POLICY_NO, NAME, ADDR, BUILDING, MACHINERY, FURNITURE, STOCKS, FIRE, VST, WAR, AD, EXP, RSM, EQ, ID, SP, FLOOD, BUR, SL, PREMIUM, TR_CR, 
+	POL_POLICY_NO, NAME, ADDR, BUILDING, MACHINERY, FURNITURE, STOCKS, FIRE, VST, WAR, AD, EXP, RSM, EQ, ID, SP, FLOOD, BUR, SL, PREMIUM, TR_CR, RC_DATE, 
 	CONSTRAINT PK_FFI_POLICY PRIMARY KEY (POL_POLICY_NO) DISABLE NOVALIDATE
 )
 as
@@ -89,9 +89,10 @@ select
         max("DEBit_NOTE_NO") 
         from rc_data 
         where policy_no = x.pol_policy_no 
-    ) "TR_CR"
-from pol_data x
+    ) "TR_CR", 
+    (select max(settlement_date) from rc_data where policy_no=x.pol_policy_no) "RC_DATE" 
+from pol_data x 
 where x.pol_prd_code in ('FFI','FSD','FCS') 
-and x.pol_marketing_executive_code not in ('ATSO','FNI','GWI','GGIP','IKBZ','MYNIN','YIG')
+and x.pol_marketing_executive_code not in ('ATSO','FNI','GWI','GGIP','IKBZ','MYNIN','YIG') 
 order by x.pol_policy_no;
 /** EOQ **/

@@ -1,12 +1,24 @@
 /** BEGIN-OF-QUERY **/
 create or replace view vw_ffi_monthly
 (
-	POLICY, CUSTOMER, AGENT, ADDR, SI_BUILDING, RATING, PREMIUM, NCB, COMMISSION, NET_PRE, OCCUPATION, TYPE, IS_AUTH, BRANCH, 
+	POLICY, CUSTOMER, AGENT, ADDR, SI_BUILDING, PERIOD_FROM, PERIOD_TO, RATING, PREMIUM, NCB, COMMISSION, NET_PRE, OCCUPATION, TYPE, RC_DATE, 
 	CONSTRAINT PK_FFI_MON_POLICY PRIMARY KEY(POLICY) DISABLE NOVALIDATE
 )
 as
 select 
-    distinct x.pol_policy_no "POLICY", cus_name "CUSTOMER", agent_name "AGENT", cus_address "ADDR", pol_sum_insured "SI_BUILDING",
+    distinct x.pol_policy_no "POLICY", cus_name "CUSTOMER", agent_name "AGENT", cus_address "ADDR", pol_sum_insured "SI_BUILDING", 
+    (   select max(pol_period_from) from uw_x_policies 
+        where pol_authorized_date=
+        (   select max(pol_authorized_date) from uw_x_policies 
+            where pol_policy_no=x.pol_policy_no
+        )
+    ) "PERIOD_FROM", 
+    (   select max(pol_period_to) from uw_x_policies 
+        where pol_authorized_date=
+        (   select max(pol_authorized_date) from uw_x_policies 
+            where pol_policy_no=x.pol_policy_no
+        )
+    ) "PERIOD_TO",
     (   select  
         /*listagg(regexp_replace(prl_description,'(^| )([^ ])([^ ])*','\2') || ':' || nvl(ppr_percentage, 0) || '%', ', ') within group (order by pol_policy_no)*/
         listagg(decode(prl_description, 'BASIC COVER', 'BC',
@@ -20,7 +32,7 @@ select
                             'SPONTANEOUS COMBUSTION', 'SC',
                             'FLOOD AND INUNDATION', 'FL',
                             'BURGLARY', 'BUR',
-                            'SL') || ':' || nvl(ppr_percentage, 0) || '%', ', ') within group (order by pol_policy_no)
+                            'SUBSIDENCE & LANDSLIDE', 'SL') || ':' || nvl(ppr_percentage, 0) || '%', ', ') within group (order by pol_policy_no)
         from pol_risk_perils where pol_policy_no=x.pol_policy_no 
         -- group by pol_policy_no
     ) "RATING",
@@ -38,15 +50,13 @@ select
         from pol_risk_info 
         where pol_policy_no = x.pol_policy_no and pin_description='OCCUPATION OF THE BUILDING' 
         group by pol_policy_no
-    ) "OCCUPATION",
+    ) "OCCUPATION", 
     pol_transaction_type "TYPE", 
-    (   select decode(max(pol_authorized_date), null, 'N', max(pol_authorized_date), 'Y') 
-        from uw_t_policies 
-        where pol_policy_no=x.pol_policy_no group by pol_policy_no
-    ) "IS_AUTH", 
-    (   
-        select distinct pol_created_branch from uw_t_policies where pol_policy_no=x.pol_policy_no
-    ) "BRANCH"
+    (   select max(settlement_date) from rc_data a, uw_x_policies b 
+        where policy_no=b.pol_policy_no  
+        and b.pol_policy_no=x.pol_policy_no 
+        and to_char(settlement_date, 'MON')=to_char(b.pol_authorized_date, 'MON') 
+    ) "RC_DATE"    
 from pol_data x  
 where x.pol_prd_code in ('FFI','FSD','FCS') 
 -- and x.pol_policy_no like '%YGN%' 
