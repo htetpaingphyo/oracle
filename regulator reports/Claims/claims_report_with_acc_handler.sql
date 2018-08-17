@@ -42,8 +42,8 @@ and pln_ref_no5 =req_requisition_no
 and int_policy_no  = pol_policy_no
 and int_prs_name  = prs_name
 and pol_seq_no = prs_plc_pol_Seq_no
-and trunc (pln_pay_date) > to_date('01-JUN-2018','DD-MON-YYYY')
-and trunc (pln_pay_date) < to_date('07-JUN-2018','DD-MON-YYYY')
+and trunc (pln_pay_date) > to_date('01-JUL-2018','DD-MON-YYYY')
+and trunc (pln_pay_date) < to_date('31-JUN-2018','DD-MON-YYYY')
 --and req_requisition_no='RQ/YGN/MCC/18000280'
 and pln_ref_no1 = int_claim_no
 --and int_prs_name='9N/4718(YGN)'

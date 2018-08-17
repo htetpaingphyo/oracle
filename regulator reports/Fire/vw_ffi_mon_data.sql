@@ -1,7 +1,7 @@
 /** BEGIN-OF-QUERY **/
 create or replace view vw_ffi_monthly
 (
-	POLICY, CUSTOMER, AGENT, ADDR, SI_BUILDING, PERIOD_FROM, PERIOD_TO, RATING, PREMIUM, NCB, COMMISSION, NET_PRE, OCCUPATION, TYPE, RC_DATE, 
+	POLICY, CUSTOMER, AGENT, ADDR, SI_BUILDING, PERIOD_FROM, PERIOD_TO, RATING, PREMIUM, NCB, COMMISSION, NET_PRE, OCCUPATION, TYPE, DN_DATE, RC_DATE, 
 	CONSTRAINT PK_FFI_MON_POLICY PRIMARY KEY(POLICY) DISABLE NOVALIDATE
 )
 as
@@ -52,6 +52,11 @@ select
         group by pol_policy_no
     ) "OCCUPATION", 
     pol_transaction_type "TYPE", 
+    (   select max(debit_note_date) from rc_data a, uw_x_policies b 
+        where policy_no=b.pol_policy_no  
+        and b.pol_policy_no=x.pol_policy_no 
+        and to_char(settlement_date, 'MON')=to_char(b.pol_authorized_date, 'MON') 
+    ) "DN_DATE",  
     (   select max(settlement_date) from rc_data a, uw_x_policies b 
         where policy_no=b.pol_policy_no  
         and b.pol_policy_no=x.pol_policy_no 

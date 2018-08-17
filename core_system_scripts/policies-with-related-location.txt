@@ -1,0 +1,14 @@
+SELECT * FROM UW_t_POLICIES WHERE POL_SEQ_NO IN (
+
+SELECT  plc_pol_seq_no
+ FROM UW_t_POL_LOCATIONS
+WHERE plc_loc_code IN (SELECT DISTINCT loc_code FROM uw_r_locations
+where 
+
+--loc_code ='000DM0022807'
+loc_earthqk='MMR017024'
+
+))
+AND 
+
+pol_cla_code ='FI'

@@ -89,13 +89,13 @@ IS
                      pol_transaction_type,
                      pol_period_from,
                      pol_last_endorsed_date
-              FROM   uw_t_policies
-             WHERE   pol_policy_no = pa_policy_no
-                     AND pol_status IN
-                                (wk_pol_pay_status,
-                                 wk_pol_cover_status,
-                                 wk_pol_sche_status,
-                                 wk_pol_renw_status);
+            FROM   uw_t_policies
+            WHERE   pol_policy_no = pa_policy_no
+            AND pol_status IN
+                    (wk_pol_pay_status,
+                     wk_pol_cover_status,
+                     wk_pol_sche_status,
+                     wk_pol_renw_status);
 
         CURSOR cur_get_cancel_pol_seq
         IS
@@ -460,11 +460,12 @@ IS
     --Date       :  27-NOV-2017
     --Purpose    :  populate  x table data using rc date
     --------------------------------------------------------------------------------
-    PROCEDURE pr_pop_x_data_rc_date (wkfromdt IN DATE, wktodt IN DATE)
-    IS
-        wkretval uw_t_policies.pol_seq_no%TYPE;
-        CURSOR cur_pol_recs
-        IS
+    PROCEDURE pr_pop_x_data_rc_date (wkfromdt IN DATE, wktodt IN DATE) IS
+
+        wkretval   uw_t_policies.pol_seq_no%TYPE;
+        WK_POL_SEQ uw_t_policies.pol_seq_no%TYPE;
+
+        CURSOR cur_pol_recs  IS
             SELECT   pol_seq_no
               FROM   (SELECT   pol_seq_no,
                                pol_period_from,
@@ -493,6 +494,65 @@ IS
                      AND TRUNC(NVL(pol_rc_receipting_date, pol_period_from)) BETWEEN wkfromdt AND wktodt;
 
     BEGIN
+
+        commit;
+        pr_del_x_data;
+        commit;
+        for rec in cur_pol_recs loop
+            WK_POL_SEQ := rec.pol_seq_no;
+            wkretval := fn_wrapper(rec.pol_seq_no);
+        end loop;
+        commit;
+
+        EXCEPTION
+            WHEN OTHERS THEN
+            dbms_output.put_line(WK_POL_SEQ);
+            dbms_output.put_line(SQLERRM);
+    END;
+
+   --------------------------------------------------------------------------------
+    --Developer  :  LAHIRU MADUSHAN
+    --Date       :  05-FEB-2018
+    --Purpose    :  populate  x table data FOR policy no
+    --------------------------------------------------------------------------------
+    PROCEDURE pr_pop_x_data_policy (wkpolicyno IN uw_t_policies.pol_policy_no%type)
+    IS
+        wkretval uw_t_policies.pol_seq_no%TYPE;
+        CURSOR cur_pol_recs
+        IS
+            SELECT   pol_seq_no
+              FROM   (SELECT   pol_seq_no,
+                               pol_period_from,
+                               pol_last_endorsed_date,
+                               pol_status,
+                               pol_policy_no
+                        FROM   uw_t_policies
+                      UNION ALL
+                      SELECT   edt_seq_no,
+                               edt_period_from,
+                               edt_last_endorsed_date,
+                               edt_status,
+                               EDT_policy_no
+                        FROM   uw_t_endorsements
+                      UNION ALL
+                      SELECT   phs_seq_no,
+                               phs_period_from,
+                               phs_last_endorsed_date,
+                               phs_status,
+                               PHS_policy_no
+                        FROM   uw_h_policy_history
+                      UNION ALL
+                      SELECT   nds_seq_no,
+                               nds_period_from,
+                               nds_last_endorsed_date,
+                               nds_status,
+                               NDS_policy_no
+                        FROM   uw_h_endorsement_history) x
+             WHERE   1 = 1 AND pol_status > 1 AND pol_status <> 9
+                     AND pol_policy_no = wkpolicyno;
+            --         AND TRUNC(NVL(pol_last_endorsed_date, pol_period_from)) BETWEEN wkfromdt AND wktodt;
+
+    BEGIN
         commit;
         pr_del_x_data;
         commit;
@@ -500,6 +560,36 @@ IS
             wkretval := fn_wrapper(rec.pol_seq_no);
         end loop;
         commit;
+    END;
+
+ --------------------------------------------------------------------------------
+    --Developer  :  LAHIRU MADUSHAN
+    --Date       :  08-05-2018
+    --Purpose    :  populate  x table data FOR EXPIRED POLICY LIFE
+ --------------------------------------------------------------------------------
+ PROCEDURE pr_pop_x_data_life_ren_notice (wkfromdt IN uw_t_policies.pol_period_from%type,
+                                          wktodt   IN uw_t_policies.pol_period_from%type)IS
+
+        wkretval uw_t_policies.pol_seq_no%TYPE;
+
+        CURSOR cur_pol_recs  IS
+            SELECT   pol_seq_no,pol_period_from,pol_last_endorsed_date,pol_status,pol_policy_no
+            FROM  uw_t_policies
+            where  pol_authorized_by is not null
+            AND POL_prd_CODE ='LHI'
+            AND pol_status <> 9
+            AND TRUNC( pol_period_to) BETWEEN wkfromdt AND wktodt;
+
+    BEGIN
+
+        commit;
+        pr_del_x_data;
+        commit;
+        for rec in cur_pol_recs loop
+            wkretval := fn_wrapper(rec.pol_seq_no);
+        end loop;
+        commit;
+
     END;
 
 

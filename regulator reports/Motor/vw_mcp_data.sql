@@ -1,8 +1,8 @@
 create or replace view sicl.vw_mcp_data 
 (
-    POLICY,NAME,ADDRESS,AGENT,PERIOD_FROM,PERIOD_TO,ACCOUNT_HANDLER,VEHICLE_NO,
-    MAKE,TYPE_OF_BODY,CC,MODEL,SUM_INSURED,WS_SI,WAR_RISK,AOG,WS_PREMIUM,NIL_EXCESS,
-    THEFT,TOTAL_PREMIUM,CHEQUE_NO,REMARK,DN_DATE,PRODUCT,IS_REINSTATEMENT, 
+    POLICY, NAME, ADDRESS, AGENT, PERIOD_FROM, PERIOD_TO, ACCOUNT_HANDLER, VEHICLE_NO, 
+    MAKE, TYPE_OF_BODY, CC, MODEL, SUM_INSURED, WS_SI, WAR_RISK, AOG, WS_PREMIUM, NIL_EXCESS, 
+    THEFT, TOTAL_PREMIUM, CHEQUE_NO, RC_DATE, DN_DATE, REMARK, PRODUCT, IS_REINSTATEMENT,  
     CONSTRAINT PK_MCP_POLICY PRIMARY KEY (POLICY) DISABLE NOVALIDATE
 )
 as
@@ -14,30 +14,31 @@ select
     (select distinct(info_value) from pol_risk_info where pol_seq_no=x.pol_seq_no and prs_name=y.prs_name and pin_description='TYPE OF BODY') "TYPE_OF_BODY", 
     (select distinct(info_value) from pol_risk_info where pol_seq_no=x.pol_seq_no and prs_name=y.prs_name and pin_description='CUBIC CAPACITY (C.C.)') "CC", 
     (select distinct(info_value) from pol_risk_info where pol_seq_no=x.pol_seq_no and prs_name=y.prs_name and pin_description='MODEL') "MODEL", 
-    pol_sum_insured "SUM_INSURED",
+    /*pol_sum_insured "SUM_INSURED",*/
+    (select ppr_sum_insured from pol_risk_perils where pol_seq_no=x.pol_seq_no and prs_name=y.prs_name and prl_description='SECTION I - LOSS OR DAMAGE') "SUM_INSURED", 
     (select distinct(info_value) from pol_risk_info where pol_seq_no=x.pol_seq_no and prs_name=y.prs_name and pin_description='WINDSCREEN SI') "WS_SI", 
     (select distinct(ppr_premium) from pol_risk_perils where pol_seq_no=x.pol_seq_no and prs_name=y.prs_name and prl_description='WAR RISK') "WAR_RISK", 
     (select distinct(ppr_premium) from pol_risk_perils where pol_seq_no=x.pol_seq_no and prs_name=y.prs_name and prl_description='ACTS OF GOD (NATURAL DISASTERS)') "AOG", 
     (select distinct(ppr_premium) from pol_risk_perils where pol_seq_no=x.pol_seq_no and prs_name=y.prs_name and prl_description='WINDSCREEN COVER') "WS_PREMIUM", 
     (select distinct(ppr_premium) from pol_risk_perils where pol_seq_no=x.pol_seq_no and prs_name=y.prs_name and prl_description='NIL EXCESS') "NIL_EXCESS", 
     (select distinct(ppr_premium) from pol_risk_perils where pol_seq_no=x.pol_seq_no and prs_name=y.prs_name and prl_description='THEFT') "THEFT",  
-    case pol_transaction_type
-        when 'SPECIAL ENDORSEMENT' then pol_total_transaction_amount else pol_transaction_amount 
-    end "TOTAL_PREMIUM", 
-    "DEBit_NOTE_NO"||' | '||debit_note_date "CHEQUE_NO",   
-    pol_transaction_type "REMARK", 
+    /*(select distinct(prs_premium) from pol_risks where pol_seq_no=x.pol_seq_no and prs_name=y.prs_name) "TOTAL_PREMIUM",*/
+    x.POL_TRANSACTION_AMOUNT "TOTAL_PREMIUM",
+    "DEBit_NOTE_NO" "CHEQUE_NO",
+    settlement_date "RC_DATE", 
     debit_note_date "DN_DATE", 
+    pol_transaction_type "REMARK",
     case x.pol_prd_code
         when 'MCP' then 'PRIVATE CAR' 
         when 'MCC' then 'COMMERCIAL CAR' 
         when 'MFP' then 'PRIVATE FLEET' 
         when 'MFC' then 'COMMERCIAL FLEET' 
         else 'HYBRID' 
-    end "PRODUCT",
-    reinstatement_transaction "IS_REINSTATEMENT" 
+    end "PRODUCT", 
+    reinstatement_transaction "IS_REINSTATEMENT"
 from pol_data x, pol_risk_perils y, rc_data z
 where x.pol_seq_no = y.pol_seq_no  
 and x.pol_seq_no = z.pol_seq_no
 and x.pol_prd_code='MCP' 
---and x.pol_policy_no like '%YGN%'
+--and x.pol_policy_no like '%YGN%' 
 order by x.pol_policy_no;
