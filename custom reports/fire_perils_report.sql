@@ -1,6 +1,6 @@
 exec pk_stat_reports.pr_del_x_data;
 
-exec pk_stat_reports.pr_pop_x_data_rc_date('01-OCT-2017', '31-OCT-2017');
+exec pk_stat_reports.pr_pop_x_data_rc_date('01-JAN-2018', SYSDATE-1);
 
 select * from fire_perils_report;
 
@@ -9,11 +9,11 @@ create or replace view fire_perils_report as
 select 
     distinct x.pol_policy_no "POLICY_NO", 
     loc_province "STATE", 
-    loc_district "DISTRICT",  
-    loc_postal_code "TOWNSHIP",  
-    loc_cyclone "VILLAGE_TRACK",  
-    loc_earthqk "VILLAGE", 
-    --loc_description "LOCATION", 
+    loc_district "DISTRICT", 
+    loc_earthqk "TOWNSHIP",
+    loc_cyclone "TOWN",    
+    loc_postal_code "WARD",
+    loc_description "LOCATION", 
     (select listagg(cus_name, ', ') within group (order by pol_policy_no)  
         from pol_data 
         where pol_policy_no=x.pol_policy_no 
