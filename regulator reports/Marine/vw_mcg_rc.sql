@@ -6,7 +6,7 @@ create or replace view sicl.vw_mcg_rc
 as
 select 
     distinct pol_policy_no, 
-    (select receipt_no /*listagg(receipt_no, ', ') within group (order by policy_no)*/ from rc_data 
+    (select /*receipt_no*/ listagg(receipt_no, ', ') within group (order by policy_no) from rc_data 
         where policy_no = x.pol_policy_no
         and settlement_date=(select max(settlement_date) from rc_data where policy_no=x.pol_policy_no)
     ) "RECEIPT", 

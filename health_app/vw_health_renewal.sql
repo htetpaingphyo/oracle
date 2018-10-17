@@ -1,6 +1,8 @@
 EXEC PK_STAT_REPORTS.PR_DEL_X_DATA;
 
-EXEC PK_STAT_REPORTS.PR_POP_X_DATA_LIFE_REN_NOTICE('01-AUG-2018', '31-AUG-2018');
+EXEC PK_STAT_REPORTS.PR_POP_X_DATA_LIFE_REN_NOTICE('01-SEP-2018', SYSDATE - 1);
+
+select * from vw_health_renewal;
 
 create or replace view vw_health_renewal
 as
