@@ -1,2 +1,2 @@
 # oracle-scripts
-Oracle report scripts for AMI.
+PL/SQL scripts for oracle database.
