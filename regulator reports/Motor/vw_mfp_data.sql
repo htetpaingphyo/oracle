@@ -24,7 +24,7 @@ select
     (select distinct(ppr_premium) from pol_risk_perils where pol_seq_no=x.pol_seq_no and prs_name=y.prs_name and prl_description='NIL EXCESS') "NIL_EXCESS", 
     (select distinct(ppr_premium) from pol_risk_perils where pol_seq_no=x.pol_seq_no and prs_name=y.prs_name and prl_description='THEFT') "THEFT",  
     /*(select distinct(prs_premium) from pol_risks where pol_seq_no=x.pol_seq_no and prs_name=y.prs_name) "TOTAL_PREMIUM",*/
-    x.POL_TRANSACTION_AMOUNT "TOTAL_PREMIUM",
+    (select distinct(ppr_premium) from pol_risk_perils where pol_seq_no=x.pol_seq_no and prs_name=y.prs_name and prl_description='SECTION I - LOSS OR DAMAGE') "TOTAL_PREMIUM",
     "DEBit_NOTE_NO" "CHEQUE_NO",
     settlement_date "RC_DATE", 
     debit_note_date "DN_DATE", 

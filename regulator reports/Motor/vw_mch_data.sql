@@ -18,12 +18,12 @@ select
     (select ppr_sum_insured from pol_risk_perils where pol_seq_no=x.pol_seq_no and prs_name=y.prs_name and prl_description='SECTION I - LOSS OR DAMAGE') "SUM_INSURED", 
     (select distinct(info_value) from pol_risk_info where pol_seq_no=x.pol_seq_no and prs_name=y.prs_name and pin_description='WINDSCREEN SI') "WS_SI", 
     (select distinct(ppr_premium) from pol_risk_perils where pol_seq_no=x.pol_seq_no and prs_name=y.prs_name and prl_description='WAR RISK') "WAR_RISK", 
-    (select distinct(ppr_premium) from pol_risk_perils where pol_seq_no=x.pol_seq_no and prs_name=y.prs_name and prl_description='ACTS OF GOD (NATURAL DISASTERS)') "AOG", 
-    (select distinct(ppr_premium) from pol_risk_perils where pol_seq_no=x.pol_seq_no and prs_name=y.prs_name and prl_description='WINDSCREEN COVER') "WS_PREMIUM", 
-    (select distinct(ppr_premium) from pol_risk_perils where pol_seq_no=x.pol_seq_no and prs_name=y.prs_name and prl_description='NIL EXCESS') "NIL_EXCESS", 
-    (select distinct(ppr_premium) from pol_risk_perils where pol_seq_no=x.pol_seq_no and prs_name=y.prs_name and prl_description='THEFT') "THEFT",  
-    /*(select distinct(prs_premium) from pol_risks where pol_seq_no=x.pol_seq_no and prs_name=y.prs_name) "TOTAL_PREMIUM",*/
-    x.POL_TRANSACTION_AMOUNT "TOTAL_PREMIUM",
+    (select distinct(ppr_premium) from pol_risk_perils where pol_seq_no=x.pol_seq_no and prs_name=y.prs_name and prl_description='ACTS OF GOD (NATURAL DISASTERS)') "AOG",  
+    (select distinct(ppr_premium) from pol_risk_perils where pol_seq_no=x.pol_seq_no and prs_name=y.prs_name and prl_description='WINDSCREEN COVER') "WS_PREMIUM",  
+    (select distinct(ppr_premium) from pol_risk_perils where pol_seq_no=x.pol_seq_no and prs_name=y.prs_name and prl_description='NIL EXCESS') "NIL_EXCESS",  
+    (select distinct(ppr_premium) from pol_risk_perils where pol_seq_no=x.pol_seq_no and prs_name=y.prs_name and prl_description='THEFT') "THEFT",   
+    (select sum(ppr_premium) from pol_risk_perils where pol_seq_no=x.pol_seq_no and prs_name=y.prs_name) "TOTAL_PREMIUM", 
+    /* x.POL_TRANSACTION_AMOUNT "TOTAL_PREMIUM",*/ 
     "DEBit_NOTE_NO" "CHEQUE_NO",
     settlement_date "RC_DATE", 
     debit_note_date "DN_DATE", 
