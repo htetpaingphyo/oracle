@@ -20,9 +20,13 @@ select
       and pol_trans_effect_date = (select max(pol_trans_effect_date) from pol_data where pol_policy_no=x.pol_policy_no)
     ) "SI", 
     ( select distinct(ppr_percentage) from pol_risk_perils where pol_policy_no=x.pol_policy_no and prl_description='BASIC COVER') "RATE", 
-    ( select pol_transaction_amount from pol_data 
+    ( select sum(pol_transaction_amount) from pol_data 
       where pol_policy_no=x.pol_policy_no
-      and pol_trans_effect_date = (select max(pol_trans_effect_date) from pol_data where pol_policy_no=x.pol_policy_no)
+      group by pol_policy_no
+      -- and pol_trans_effect_date = (select max(pol_trans_effect_date) from pol_data where pol_policy_no=x.pol_policy_no)
+      /*
+      *** Change instead of fetching pol_transaction_amount by max => pol_trans_effect_date to sum => pol_transaction_amount ***
+      */
     ) "PREMIUM", 
     ( select (pol_transaction_amount + round((pol_sum_insured * 0.01 / 100), 2)) from pol_data 
       where pol_policy_no=x.pol_policy_no
