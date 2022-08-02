@@ -1,0 +1,53 @@
+SYS@ITOWER2> show parameter db_name;
+
+NAME                                 TYPE        VALUE
+------------------------------------ ----------- ------------------------------
+db_name                              string      ITOWER2
+
+SYS@ITOWER2> show parameter db_unique_name;
+
+NAME                                 TYPE        VALUE
+------------------------------------ ----------- ------------------------------
+db_unique_name                       string      ITOWER2
+
+SYS@ITOWER2> show parameter log_archive_config;
+
+NAME                                 TYPE        VALUE
+------------------------------------ ----------- ------------------------------
+log_archive_config                   string      dg_config=(itower2,itowerdr)
+
+SYS@ITOWER2> show parameter log_archive_dest_1;
+
+NAME                                 TYPE        VALUE
+------------------------------------ ----------- ------------------------------
+log_archive_dest_1                   string      location=use_db_recovery_file_
+                                                 dest valid_for=(all_logfiles,a
+                                                 ll_roles) db_unique_name=ITOWE
+                                                 R2
+
+SYS@ITOWER2> show parameter log_archive_dest_2;
+
+NAME                                 TYPE        VALUE
+------------------------------------ ----------- ------------------------------
+log_archive_dest_2                   string      service=itowerdr valid_for=(on
+                                                 line_logfiles,primary_roles) d
+                                                 b_unique_name=itowerdr
+
+
+SYS@ITOWER2> show parameter fal_server;
+
+NAME                                 TYPE        VALUE
+------------------------------------ ----------- ------------------------------
+fal_server                           string      itowerdr
+
+SYS@ITOWER2> show parameter fal_client;
+
+NAME                                 TYPE        VALUE
+------------------------------------ ----------- ------------------------------
+fal_client                           string      itowerdc
+
+SYS@ITOWER2> show parameter standby_file_management;
+
+NAME                                 TYPE        VALUE
+------------------------------------ ----------- ------------------------------
+standby_file_management              string      auto

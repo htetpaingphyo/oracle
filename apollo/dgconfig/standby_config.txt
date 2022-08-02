@@ -1,0 +1,52 @@
+SYS@ITOWER2> show parameter db_name;
+
+NAME                                 TYPE        VALUE
+------------------------------------ ----------- ------------------------------
+db_name                              string      itower2
+
+SYS@ITOWER2> show parameter db_unique_name;
+
+NAME                                 TYPE        VALUE
+------------------------------------ ----------- ------------------------------
+db_unique_name                       string      itowerdr
+
+SYS@ITOWER2> show parameter log_archive_config;
+
+NAME                                 TYPE        VALUE
+------------------------------------ ----------- ------------------------------
+log_archive_config                   string      dg_config=(itower2,itowerdr)
+
+SYS@ITOWER2> show parameter log_archive_dest_1;
+
+NAME                                 TYPE        VALUE
+------------------------------------ ----------- ------------------------------
+log_archive_dest_1                   string      location=use_db_recovery_file_
+                                                 dest
+
+NAME                                 TYPE        VALUE
+------------------------------------ ----------- ------------------------------
+log_archive_dest_19                  string
+
+SYS@ITOWER2> show parameter log_archive_dest_2;
+
+NAME                                 TYPE        VALUE
+------------------------------------ ----------- ------------------------------
+log_archive_dest_2                   string
+
+SYS@ITOWER2> show parameter fal_server;
+
+NAME                                 TYPE        VALUE
+------------------------------------ ----------- ------------------------------
+fal_server                           string      itowerdc
+
+SYS@ITOWER2> show parameter fal_client;
+
+NAME                                 TYPE        VALUE
+------------------------------------ ----------- ------------------------------
+fal_client                           string      itowerdr
+
+SYS@ITOWER2> show parameter standby_file_management;
+
+NAME                                 TYPE        VALUE
+------------------------------------ ----------- ------------------------------
+standby_file_management              string      AUTO
