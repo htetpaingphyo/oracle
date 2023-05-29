@@ -1,0 +1,64 @@
+
+Recovery Manager: Release 12.2.0.1.0 - Production on Thu May 4 11:32:07 2023
+
+Copyright (c) 1982, 2017, Oracle and/or its affiliates.  All rights reserved.
+
+connected to target database: ITOWER2 (DBID=2536315547)
+
+RMAN> run
+2> {
+3> 	allocate channel ch1 device type disk format '/backup/%d_%T_%p.bkp';
+4> 	backup incremental level 0 database;
+5> 	release channel ch1;
+6> }
+7> 
+using target database control file instead of recovery catalog
+allocated channel: ch1
+channel ch1: SID=965 device type=DISK
+
+Starting backup at 04-MAY-23
+channel ch1: starting compressed incremental level 0 datafile backup set
+channel ch1: specifying datafile(s) in backup set
+input datafile file number=00003 name=/datafiles/oradata/undo01.dbf
+input datafile file number=00014 name=/datafiles/oradata/undo02.dbf
+input datafile file number=00030 name=/datafiles/oradata/undo03.dbf
+input datafile file number=00005 name=/datafiles/oradata/ETS_DATA01.dbf
+input datafile file number=00023 name=/datafiles/oradata/ETS_DATA04.dbf
+input datafile file number=00024 name=/datafiles/oradata/ETS_DATA05.dbf
+input datafile file number=00029 name=/datafiles/oradata/ETS_DATA06.dbf
+input datafile file number=00006 name=/datafiles/oradata/ETS_TXN_DATA01.dbf
+input datafile file number=00013 name=/datafiles/oradata/ETS_DATA02.dbf
+input datafile file number=00015 name=/datafiles/oradata/ETS_DATA03.dbf
+input datafile file number=00007 name=/datafiles/oradata/ITOWER_ARC01.dbf
+input datafile file number=00016 name=/datafiles/oradata/ETS_TXN_DATA02.dbf
+input datafile file number=00017 name=/datafiles/oradata/ITOWER_ARC02.dbf
+input datafile file number=00018 name=/datafiles/oradata/ETS_TXN_DATA03.dbf
+input datafile file number=00019 name=/datafiles/oradata/ITOWER_ARC03.dbf
+input datafile file number=00020 name=/datafiles/oradata/ETS_TXN_DATA04.dbf
+input datafile file number=00022 name=/datafiles/oradata/ETS_TXN_DATA06.dbf
+input datafile file number=00025 name=/datafiles/oradata/ETS_TXN_DATA07.dbf
+input datafile file number=00027 name=/datafiles/oradata/ITOWER_ARC04.dbf
+input datafile file number=00028 name=/datafiles/oradata/IANALYTICS03.dbf
+input datafile file number=00008 name=/datafiles/oradata/IANALYTICS01.dbf
+input datafile file number=00026 name=/datafiles/oradata/IANALYTICS02.dbf
+input datafile file number=00011 name=/datafiles/oradata/ETS_TXN_INDEX01.dbf
+input datafile file number=00010 name=/datafiles/oradata/ARCHIVE01.dbf
+input datafile file number=00009 name=/datafiles/oradata/ETS_TXN_DATA1_01.dbf
+input datafile file number=00021 name=/datafiles/oradata/ETS_TXN_DATA05.dbf
+input datafile file number=00002 name=/datafiles/oradata/sysaux01.dbf
+input datafile file number=00001 name=/datafiles/oradata/system01.dbf
+input datafile file number=00004 name=/datafiles/oradata/users01.dbf
+input datafile file number=00012 name=/datafiles/oradata/ETS_INDEX01.dbf
+channel ch1: starting piece 1 at 04-MAY-23
+channel ch1: finished piece 1 at 04-MAY-23
+piece handle=/backup/ITOWER2_20230504_1.bkp tag=TAG20230504T113212 comment=NONE
+channel ch1: backup set complete, elapsed time: 04:37:29
+Finished backup at 04-MAY-23
+
+Starting Control File and SPFILE Autobackup at 04-MAY-23
+piece handle=/fra/itower2/ITOWER2/autobackup/2023_05_04/o1_mf_s_1135958984_l56zc39h_.bkp comment=NONE
+Finished Control File and SPFILE Autobackup at 04-MAY-23
+
+released channel: ch1
+
+Recovery Manager complete.

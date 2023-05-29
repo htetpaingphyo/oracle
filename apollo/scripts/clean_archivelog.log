@@ -1,0 +1,381 @@
+
+Recovery Manager: Release 12.2.0.1.0 - Production on Mon May 29 12:00:02 2023
+
+Copyright (c) 1982, 2017, Oracle and/or its affiliates.  All rights reserved.
+
+connected to target database: ITOWER2 (DBID=2536315547)
+
+RMAN> run 
+2> {
+3> 	crosscheck archivelog all;
+4> 	delete noprompt archivelog until time 'sysdate';
+5> }
+6> 
+using target database control file instead of recovery catalog
+allocated channel: ORA_DISK_1
+channel ORA_DISK_1: SID=773 device type=DISK
+allocated channel: ORA_DISK_2
+channel ORA_DISK_2: SID=293 device type=DISK
+allocated channel: ORA_DISK_3
+channel ORA_DISK_3: SID=873 device type=DISK
+allocated channel: ORA_DISK_4
+channel ORA_DISK_4: SID=972 device type=DISK
+allocated channel: ORA_DISK_5
+channel ORA_DISK_5: SID=1061 device type=DISK
+allocated channel: ORA_DISK_6
+channel ORA_DISK_6: SID=1161 device type=DISK
+allocated channel: ORA_DISK_7
+channel ORA_DISK_7: SID=1261 device type=DISK
+allocated channel: ORA_DISK_8
+channel ORA_DISK_8: SID=1348 device type=DISK
+validation succeeded for archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446044_l77t3th4_.arc RECID=657803 STAMP=1138083592
+validation succeeded for archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446040_l77s1g5n_.arc RECID=657795 STAMP=1138082510
+validation succeeded for archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446041_l77scs3s_.arc RECID=657797 STAMP=1138082814
+validation succeeded for archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446042_l77soc77_.arc RECID=657799 STAMP=1138083129
+validation succeeded for archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446045_l77tgmyd_.arc RECID=657805 STAMP=1138083928
+validation succeeded for archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446046_l77trr0h_.arc RECID=657807 STAMP=1138084270
+validation succeeded for archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446047_l77v3v2r_.arc RECID=657809 STAMP=1138084623
+validation succeeded for archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446043_l77srstz_.arc RECID=657801 STAMP=1138083252
+validation succeeded for archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446049_l77vhotm_.arc RECID=657813 STAMP=1138085005
+validation succeeded for archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446048_l77vfpg9_.arc RECID=657811 STAMP=1138084928
+validation succeeded for archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446050_l77vxhpp_.arc RECID=657815 STAMP=1138085432
+validation succeeded for archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446053_l77wolcc_.arc RECID=657821 STAMP=1138086205
+validation succeeded for archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446052_l77wk4jz_.arc RECID=657819 STAMP=1138086061
+validation succeeded for archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446039_l77rv5no_.arc RECID=657793 STAMP=1138082284
+validation succeeded for archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446051_l77w7y8q_.arc RECID=657817 STAMP=1138085767
+validation succeeded for archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446054_l77wq61h_.arc RECID=657822 STAMP=1138086254
+validation succeeded for archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446055_l77x6wvd_.arc RECID=657825 STAMP=1138086785
+validation succeeded for archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446059_l77xx05w_.arc RECID=657833 STAMP=1138087491
+validation succeeded for archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446056_l77x8p9c_.arc RECID=657827 STAMP=1138086834
+validation succeeded for archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446062_l77ymm70_.arc RECID=657839 STAMP=1138088206
+validation succeeded for archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446060_l77y5kdy_.arc RECID=657835 STAMP=1138087738
+validation succeeded for archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446064_l77yzo57_.arc RECID=657843 STAMP=1138088575
+validation succeeded for archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446063_l77yvvw6_.arc RECID=657841 STAMP=1138088449
+validation succeeded for archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446058_l77xpfy8_.arc RECID=657830 STAMP=1138087276
+validation succeeded for archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446061_l77yds2o_.arc RECID=657837 STAMP=1138087980
+validation succeeded for archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446070_l7807wyl_.arc RECID=657855 STAMP=1138089873
+validation succeeded for archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446066_l77z59jn_.arc RECID=657847 STAMP=1138088793
+validation succeeded for archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446069_l77zydlp_.arc RECID=657853 STAMP=1138089568
+validation succeeded for archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446065_l77z2c3n_.arc RECID=657844 STAMP=1138088651
+validation succeeded for archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446072_l780nxhl_.arc RECID=657859 STAMP=1138090268
+validation succeeded for archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446073_l780r098_.arc RECID=657861 STAMP=1138090396
+validation succeeded for archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446068_l77zj9l4_.arc RECID=657851 STAMP=1138089107
+validation succeeded for archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446074_l7811bbz_.arc RECID=657863 STAMP=1138090679
+validation succeeded for archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446067_l77z8dd1_.arc RECID=657849 STAMP=1138088885
+validation succeeded for archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446057_l77xn0n1_.arc RECID=657829 STAMP=1138087188
+validation succeeded for archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446071_l780gkxj_.arc RECID=657857 STAMP=1138090081
+validation succeeded for archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446075_l781dj3o_.arc RECID=657865 STAMP=1138091058
+validation succeeded for archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446076_l781q8cr_.arc RECID=657867 STAMP=1138091407
+validation succeeded for archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446079_l782j1k1_.arc RECID=657873 STAMP=1138092211
+validation succeeded for archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446078_l7829d49_.arc RECID=657871 STAMP=1138091951
+validation succeeded for archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446085_l7848p54_.arc RECID=657885 STAMP=1138094001
+validation succeeded for archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446086_l784lkts_.arc RECID=657887 STAMP=1138094308
+validation succeeded for archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446080_l782rgow_.arc RECID=657875 STAMP=1138092435
+validation succeeded for archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446082_l783gp7y_.arc RECID=657879 STAMP=1138093151
+validation succeeded for archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446081_l7833sxz_.arc RECID=657877 STAMP=1138092805
+validation succeeded for archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446084_l7844p4m_.arc RECID=657883 STAMP=1138093853
+validation succeeded for archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446087_l784xj8j_.arc RECID=657889 STAMP=1138094649
+validation succeeded for archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446077_l781y1w3_.arc RECID=657869 STAMP=1138091590
+validation succeeded for archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446083_l783t57d_.arc RECID=657881 STAMP=1138093521
+validation succeeded for archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446088_l7857tw9_.arc RECID=657891 STAMP=1138094987
+validation succeeded for archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446090_l785om59_.arc RECID=657895 STAMP=1138095416
+validation succeeded for archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446089_l785jz4p_.arc RECID=657893 STAMP=1138095284
+validation succeeded for archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446096_l787ptr7_.arc RECID=657905 STAMP=1138097498
+validation succeeded for archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446092_l785sqv6_.arc RECID=657898 STAMP=1138095568
+validation succeeded for archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446094_l786kw51_.arc RECID=657903 STAMP=1138096346
+validation succeeded for archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446097_l787sgoj_.arc RECID=657906 STAMP=1138097615
+validation succeeded for archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446091_l785qkt7_.arc RECID=657896 STAMP=1138095496
+validation succeeded for archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446095_l7874slj_.arc RECID=657904 STAMP=1138096937
+validation succeeded for archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446098_l7889grx_.arc RECID=657907 STAMP=1138098122
+validation succeeded for archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446099_l788roxg_.arc RECID=657908 STAMP=1138098616
+validation succeeded for archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446104_l78c2wpj_.arc RECID=657913 STAMP=1138100976
+validation succeeded for archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446107_l78d39cv_.arc RECID=657917 STAMP=1138101997
+validation succeeded for archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446108_l78dgm2k_.arc RECID=657918 STAMP=1138102406
+validation succeeded for archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446093_l7862b7q_.arc RECID=657901 STAMP=1138095912
+validation succeeded for archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446106_l78cp0ky_.arc RECID=657916 STAMP=1138101587
+validation succeeded for archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446105_l78cbb85_.arc RECID=657914 STAMP=1138101217
+Crosschecked 7 objects
+
+validation succeeded for archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446103_l78bh0sf_.arc RECID=657912 STAMP=1138100339
+Crosschecked 6 objects
+
+validation succeeded for archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446101_l789kk98_.arc RECID=657910 STAMP=1138099399
+Crosschecked 8 objects
+
+validation succeeded for archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446102_l789yyqj_.arc RECID=657911 STAMP=1138099809
+Crosschecked 8 objects
+
+validation succeeded for archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446109_l78dxf0t_.arc RECID=657919 STAMP=1138102868
+Crosschecked 11 objects
+
+validation succeeded for archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446110_l78f1vm1_.arc RECID=657920 STAMP=1138102973
+Crosschecked 11 objects
+
+validation succeeded for archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446111_l78ffd2s_.arc RECID=657925 STAMP=1138103345
+Crosschecked 12 objects
+
+validation succeeded for archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446100_l7897x4t_.arc RECID=657909 STAMP=1138099074
+Crosschecked 10 objects
+
+
+released channel: ORA_DISK_1
+released channel: ORA_DISK_2
+released channel: ORA_DISK_3
+released channel: ORA_DISK_4
+released channel: ORA_DISK_5
+released channel: ORA_DISK_6
+released channel: ORA_DISK_7
+released channel: ORA_DISK_8
+allocated channel: ORA_DISK_1
+channel ORA_DISK_1: SID=773 device type=DISK
+allocated channel: ORA_DISK_2
+channel ORA_DISK_2: SID=293 device type=DISK
+allocated channel: ORA_DISK_3
+channel ORA_DISK_3: SID=873 device type=DISK
+allocated channel: ORA_DISK_4
+channel ORA_DISK_4: SID=972 device type=DISK
+allocated channel: ORA_DISK_5
+channel ORA_DISK_5: SID=1061 device type=DISK
+allocated channel: ORA_DISK_6
+channel ORA_DISK_6: SID=1161 device type=DISK
+allocated channel: ORA_DISK_7
+channel ORA_DISK_7: SID=1261 device type=DISK
+allocated channel: ORA_DISK_8
+channel ORA_DISK_8: SID=1348 device type=DISK
+RMAN-08120: warning: archived log not deleted, not yet applied by standby
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446095_l7874slj_.arc thread=1 sequence=446095
+RMAN-08120: warning: archived log not deleted, not yet applied by standby
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446096_l787ptr7_.arc thread=1 sequence=446096
+RMAN-08120: warning: archived log not deleted, not yet applied by standby
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446097_l787sgoj_.arc thread=1 sequence=446097
+RMAN-08120: warning: archived log not deleted, not yet applied by standby
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446098_l7889grx_.arc thread=1 sequence=446098
+RMAN-08120: warning: archived log not deleted, not yet applied by standby
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446099_l788roxg_.arc thread=1 sequence=446099
+RMAN-08120: warning: archived log not deleted, not yet applied by standby
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446100_l7897x4t_.arc thread=1 sequence=446100
+RMAN-08120: warning: archived log not deleted, not yet applied by standby
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446101_l789kk98_.arc thread=1 sequence=446101
+RMAN-08120: warning: archived log not deleted, not yet applied by standby
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446102_l789yyqj_.arc thread=1 sequence=446102
+RMAN-08120: warning: archived log not deleted, not yet applied by standby
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446103_l78bh0sf_.arc thread=1 sequence=446103
+RMAN-08120: warning: archived log not deleted, not yet applied by standby
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446104_l78c2wpj_.arc thread=1 sequence=446104
+RMAN-08120: warning: archived log not deleted, not yet applied by standby
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446105_l78cbb85_.arc thread=1 sequence=446105
+RMAN-08120: warning: archived log not deleted, not yet applied by standby
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446106_l78cp0ky_.arc thread=1 sequence=446106
+RMAN-08120: warning: archived log not deleted, not yet applied by standby
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446107_l78d39cv_.arc thread=1 sequence=446107
+RMAN-08120: warning: archived log not deleted, not yet applied by standby
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446108_l78dgm2k_.arc thread=1 sequence=446108
+RMAN-08120: warning: archived log not deleted, not yet applied by standby
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446109_l78dxf0t_.arc thread=1 sequence=446109
+RMAN-08120: warning: archived log not deleted, not yet applied by standby
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446110_l78f1vm1_.arc thread=1 sequence=446110
+RMAN-08120: warning: archived log not deleted, not yet applied by standby
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446111_l78ffd2s_.arc thread=1 sequence=446111
+deleted archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446043_l77srstz_.arc RECID=657801 STAMP=1138083252
+deleted archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446041_l77scs3s_.arc RECID=657797 STAMP=1138082814
+deleted archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446044_l77t3th4_.arc RECID=657803 STAMP=1138083592
+deleted archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446039_l77rv5no_.arc RECID=657793 STAMP=1138082284
+deleted archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446040_l77s1g5n_.arc RECID=657795 STAMP=1138082510
+deleted archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446042_l77soc77_.arc RECID=657799 STAMP=1138083129
+deleted archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446045_l77tgmyd_.arc RECID=657805 STAMP=1138083928
+deleted archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446046_l77trr0h_.arc RECID=657807 STAMP=1138084270
+deleted archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446048_l77vfpg9_.arc RECID=657811 STAMP=1138084928
+deleted archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446047_l77v3v2r_.arc RECID=657809 STAMP=1138084623
+deleted archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446051_l77w7y8q_.arc RECID=657817 STAMP=1138085767
+deleted archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446049_l77vhotm_.arc RECID=657813 STAMP=1138085005
+deleted archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446050_l77vxhpp_.arc RECID=657815 STAMP=1138085432
+deleted archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446052_l77wk4jz_.arc RECID=657819 STAMP=1138086061
+deleted archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446054_l77wq61h_.arc RECID=657822 STAMP=1138086254
+deleted archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446053_l77wolcc_.arc RECID=657821 STAMP=1138086205
+deleted archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446055_l77x6wvd_.arc RECID=657825 STAMP=1138086785
+deleted archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446058_l77xpfy8_.arc RECID=657830 STAMP=1138087276
+deleted archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446059_l77xx05w_.arc RECID=657833 STAMP=1138087491
+deleted archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446060_l77y5kdy_.arc RECID=657835 STAMP=1138087738
+deleted archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446056_l77x8p9c_.arc RECID=657827 STAMP=1138086834
+deleted archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446057_l77xn0n1_.arc RECID=657829 STAMP=1138087188
+deleted archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446061_l77yds2o_.arc RECID=657837 STAMP=1138087980
+deleted archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446062_l77ymm70_.arc RECID=657839 STAMP=1138088206
+deleted archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446063_l77yvvw6_.arc RECID=657841 STAMP=1138088449
+deleted archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446064_l77yzo57_.arc RECID=657843 STAMP=1138088575
+deleted archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446065_l77z2c3n_.arc RECID=657844 STAMP=1138088651
+deleted archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446068_l77zj9l4_.arc RECID=657851 STAMP=1138089107
+deleted archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446066_l77z59jn_.arc RECID=657847 STAMP=1138088793
+deleted archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446067_l77z8dd1_.arc RECID=657849 STAMP=1138088885
+deleted archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446069_l77zydlp_.arc RECID=657853 STAMP=1138089568
+deleted archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446070_l7807wyl_.arc RECID=657855 STAMP=1138089873
+deleted archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446071_l780gkxj_.arc RECID=657857 STAMP=1138090081
+deleted archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446072_l780nxhl_.arc RECID=657859 STAMP=1138090268
+deleted archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446074_l7811bbz_.arc RECID=657863 STAMP=1138090679
+deleted archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446075_l781dj3o_.arc RECID=657865 STAMP=1138091058
+deleted archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446073_l780r098_.arc RECID=657861 STAMP=1138090396
+deleted archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446078_l7829d49_.arc RECID=657871 STAMP=1138091951
+deleted archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446077_l781y1w3_.arc RECID=657869 STAMP=1138091590
+deleted archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446076_l781q8cr_.arc RECID=657867 STAMP=1138091407
+deleted archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446080_l782rgow_.arc RECID=657875 STAMP=1138092435
+deleted archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446079_l782j1k1_.arc RECID=657873 STAMP=1138092211
+deleted archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446081_l7833sxz_.arc RECID=657877 STAMP=1138092805
+deleted archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446082_l783gp7y_.arc RECID=657879 STAMP=1138093151
+deleted archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446085_l7848p54_.arc RECID=657885 STAMP=1138094001
+deleted archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446083_l783t57d_.arc RECID=657881 STAMP=1138093521
+deleted archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446084_l7844p4m_.arc RECID=657883 STAMP=1138093853
+deleted archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446087_l784xj8j_.arc RECID=657889 STAMP=1138094649
+deleted archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446089_l785jz4p_.arc RECID=657893 STAMP=1138095284
+Deleted 7 objects
+
+deleted archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446088_l7857tw9_.arc RECID=657891 STAMP=1138094987
+Deleted 7 objects
+
+deleted archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446086_l784lkts_.arc RECID=657887 STAMP=1138094308
+Deleted 6 objects
+
+deleted archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446090_l785om59_.arc RECID=657895 STAMP=1138095416
+Deleted 7 objects
+
+deleted archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446091_l785qkt7_.arc RECID=657896 STAMP=1138095496
+Deleted 7 objects
+
+deleted archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446093_l7862b7q_.arc RECID=657901 STAMP=1138095912
+Deleted 7 objects
+
+deleted archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446092_l785sqv6_.arc RECID=657898 STAMP=1138095568
+Deleted 7 objects
+
+deleted archived log
+archived log file name=/fra/itower2/ITOWER2/archivelog/2023_05_29/o1_mf_1_446094_l786kw51_.arc RECID=657903 STAMP=1138096346
+Deleted 8 objects
+
+
+Recovery Manager complete.
